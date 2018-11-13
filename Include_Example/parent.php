@@ -1,3 +1,4 @@
+<?php $siteroot = '/sandbox/Include_Example'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
