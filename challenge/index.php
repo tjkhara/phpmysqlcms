@@ -10,18 +10,7 @@
 </head>
 <body id="page_home">
 <div class="wrapper">
-  <header>
-    <div class="branding"> <img src="images/ralogo_monogram.png" alt="Logo">
-      <p>Roux Academy<br>
-        Art • Media • Design</p>
-    </div>
-    <div class="description">
-      <h1>Roux Academy 2016 Art Conference</h1>
-      <p>Join over 500 hundred of the most creative and brilliant minds of art colleges all around the world for five days of lectures by world-renowned art scholars and artists, and seven days and nights of gallery exhibits featuring the best in contemporary art, including painting, sculpture, and more, in the beautiful halls of Hotel Contempo in the heart of Seattle.</p>
-    </div>
-    <?php include_once './includes/nav.php'; ?>
-  </header>
-  <div id="rotator"><img src="images/art01.jpg" width="1000" height="320" alt="Artwork from show"></div>
+    <?php require './includes/header.php'; ?>
   <!-- Rotator -->
   <section id="main">
     <article id="aboutheevent">
@@ -33,20 +22,7 @@
     <article id="featuredartists">
       <h2>Featured Artists</h2>
       <p>The Roux Academy selects approximately 200 distinct pieces of contemporary art for display in their collective exhibit. Nine individuals are granted his or her own exhibit hall to display entire collections or themed pieces. Each Featured Artist has an opportunity to speak at the conference to share his or her vision, perspective, and techniques with conference attendees.</p>
-      <div class="artistgroup clearfix">
-        <ul class="clearfix">
-          <li><img src="images/artists/Barot_Bellingham_tn.jpg" alt="Barot Bellingham"></li>
-          <li><img src="images/artists/Constance_Smith_tn.jpg" alt="Constance Smith"></li>
-          <li><img src="images/artists/Hassum_Harrod_tn.jpg" alt="Hassum Harrod"></li>
-          <li><img src="images/artists/Hillary_Goldwynn_tn.jpg" alt="Hillary Goldwynn"></li>
-          <li><img src="images/artists/Jennifer_Jerome_tn.jpg" alt="Jennifer Jerome"></li>
-          <li><img src="images/artists/Jonathan_Ferrar_tn.jpg" alt="Jonathan Ferrar"></li>
-          <li><img src="images/artists/LaVonne_LaRue_tn.jpg" alt="LaVonne LaRue"></li>
-          <li><img src="images/artists/Riley_Rewington_tn.jpg" alt="Riley Rewington"></li>
-          <li><img src="images/artists/Xhou_Ta_tn.jpg" alt="Xhou Ta"></li>
-        </ul>
-        <p class="clearfix"><a class="link" href="artists.php">View Artist Info</a></p>
-      </div>
+        <?php include_once './includes/images.php'; ?>
     </article>
     <!-- Featured Artists -->
     <article id="thevenue">
