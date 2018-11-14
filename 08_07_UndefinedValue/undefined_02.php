@@ -14,6 +14,6 @@ $descriptions = [
 </head>
 <body>
 <h1>Undefined Constant</h1>
-<p>Marvin is <?= $descriptions[Marvin]; ?>.</p>
+<p>Marvin is <?= $descriptions['Marvin']; ?>.</p>
 </body>
 </html>
