@@ -7,7 +7,12 @@ $characters = [
     'Ford Prefect'];
 // Sorts the original array
 // Argument passed by reference
+
+// Sort
 sort($characters);
+
+// Reverse sort
+rsort($characters);
 ?>
 <!DOCTYPE html>
 <html lang="en">
