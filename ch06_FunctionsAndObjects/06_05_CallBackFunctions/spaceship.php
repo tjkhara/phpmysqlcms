@@ -9,7 +9,13 @@ $friends = [
     ['first' => 'John', 'last' => 'Black'],
     ['first' => 'Diana', 'last' => 'Black']
 ];
-sort($friends);
+// Normal sort
+//sort($friends);
+
+// USort with anonymous function as argument
+usort($friends, function($a, $b){
+    return [$a['last'],$a['first']] <=> [$b['last'],$b['first']];
+})
 ?>
 <!DOCTYPE html>
 <html lang="en">
