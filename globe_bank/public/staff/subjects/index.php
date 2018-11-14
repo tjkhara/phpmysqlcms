@@ -1,9 +1,8 @@
-// HTML 5 Template
 <!doctype html>
 
 <html lang="en">
   <head>
-    <title></title>
+    <title>Globe Bank</title>
     <meta charset="utf-8">
   </head>
 

@@ -7,6 +7,6 @@
   </head>
 
   <body>
-
+  <h1>Globe Bank: Coming Soon</h1>
   </body>
 </html>
