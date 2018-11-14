@@ -5,6 +5,9 @@ $characters = [
     'Marvin',
     'Slartibartfast',
     'Ford Prefect'];
+// Sorts the original array
+// Argument passed by reference
+sort($characters);
 ?>
 <!DOCTYPE html>
 <html lang="en">
