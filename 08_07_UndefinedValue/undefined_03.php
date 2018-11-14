@@ -2,4 +2,4 @@
 
 $firstName = 'David';
 
-echo $firstname;
+echo $firstName;

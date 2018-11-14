@@ -5,4 +5,7 @@ if($submitted) {
     $message = 'Thank you';
 }
 
-echo $message;
+if(isset($message))
+{
+    echo $message;
+}
