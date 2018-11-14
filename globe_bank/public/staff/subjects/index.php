@@ -1,3 +1,4 @@
+// HTML 5 Template
 <!doctype html>
 
 <html lang="en">
