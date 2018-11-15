@@ -1,12 +1,10 @@
-<!doctype html>
+<?php require_once('../../../private/initialize.php') ?>
+<?php $page_title = 'Subjects'; ?>
+<?php include('../../../private/shared/staff_header.php') ?>
 
-<html lang="en">
-  <head>
-    <title>Globe Bank</title>
-    <meta charset="utf-8">
-  </head>
+<div id="content">
 
-  <body>
+</div>
 
-  </body>
-</html>
+<?php include('../../../private/shared/staff_footer.php') ?>
+
