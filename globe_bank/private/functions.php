@@ -27,4 +27,19 @@ function h($string = "")
 {
     return htmlspecialchars($string);
 }
+
+// When a 404 error happens
+// We could instead of exit redirect to a custom 404 error page as well
+function error_404()
+{
+    header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
+    exit();
+}
+
+// For 500 internal server error
+function error_500()
+{
+    header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal Server Error");
+    exit();
+}
 ?>
