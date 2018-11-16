@@ -42,4 +42,11 @@ function error_500()
     header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal Server Error");
     exit();
 }
+
+// Redirect function
+function redirect_to($location)
+{
+    header("Location: " . $location);
+    exit;
+}
 ?>
