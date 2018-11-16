@@ -1,22 +1,48 @@
-<?php
+<?php // Single page form processing
 
 require_once('../../../private/initialize.php');
 
+// Check to see if there is an id set in GET
+// If not, redirect to index.php
+if(!isset($_GET['id']))
+{
+    redirect_to(url_for('staff/subjects/index.php'));
+}
+
+// At this point we have an id
+$id = $_GET['id'];
+
 // There can be no white space on this page before the php tag
 
-$test = $_GET['test'] ?? '';
 
-if($test == '404') {
-    error_404();
-} elseif ($test == '500') {
-    error_500();
-} elseif ($test == 'redirect') {
-    redirect_to(url_for('/staff/subjects/index.php'));
+// Set default values for variables in form
+$menu_name = "";
+$position = "";
+$visible = "";
+
+//********* Form Processing **********************//
+// This code below will make sure that create.php is only accessed via
+// a post request or a form submission. And not by directly putting this
+// URL in the browser (get request.)
+if(is_post_request())
+{
+    // Handle form values sent by new.php
+
+    $menu_name = $_POST['menu_name'] ?? '';
+    $position = $_POST['position'] ?? '';
+    $visible = $_POST['visible'] ?? '';
+
+    echo "Form parameters<br />";
+    echo "Menu name: " . $menu_name . "<br />";
+    echo "Position: " . $position . "<br />";
+    echo "Visible: " . $visible . "<br />";
 }
 ?>
 
 <?php $page_title = 'Edit Subject'; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
+
+<!--*********************Form Display****************************-->
 
 <div id="content">
 
@@ -25,10 +51,10 @@ if($test == '404') {
     <div class="subject edit">
         <h1>Edit Subject</h1>
 
-        <form action="" method="post">
+        <form action="<?php echo url_for('/staff/subjects/edit.php?id=' . h(u($id))); ?>" method="post">
             <dl>
                 <dt>Menu Name</dt>
-                <dd><input type="text" name="menu_name" value="" /></dd>
+                <dd><input type="text" name="menu_name" value="<?= $menu_name ?>" /></dd>
             </dl>
             <dl>
                 <dt>Position</dt>
