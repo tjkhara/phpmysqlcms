@@ -21,4 +21,10 @@ function raw_u($string = "")
 {
     return rawurlencode($string);
 }
+
+// Short function for htmlspecialchars function
+function h($string = "")
+{
+    return htmlspecialchars($string);
+}
 ?>
