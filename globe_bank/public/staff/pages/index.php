@@ -4,10 +4,10 @@
 <?php
 $pages =
     [
-        ['id'=>'1', 'position'=>'1', 'visible'=>'1', 'menu_name'=>'Page 1'],
-        ['id'=>'2', 'position'=>'2', 'visible'=>'1', 'menu_name'=>'Page 2'],
-        ['id'=>'3', 'position'=>'3', 'visible'=>'1', 'menu_name'=>'Page 3'],
-        ['id'=>'4', 'position'=>'4', 'visible'=>'1', 'menu_name'=>'Page 4']
+        ['id'=>'1', 'position'=>'1', 'visible'=>'1', 'menu_name'=>'Globe Bank'],
+        ['id'=>'2', 'position'=>'2', 'visible'=>'1', 'menu_name'=>'History'],
+        ['id'=>'3', 'position'=>'3', 'visible'=>'1', 'menu_name'=>'Leadership'],
+        ['id'=>'4', 'position'=>'4', 'visible'=>'1', 'menu_name'=>'Contact Us']
     ];
 ?>
 
@@ -35,11 +35,11 @@ $pages =
     </tr>
     <?php foreach($pages as $page) { ?>
     <tr>
-        <td> <?= $page['id']; ?> </td>
-        <td> <?= $page['position']; ?> </td>
-        <td> <?= $page['visible']; ?> </td>
-        <td> <?= $page['menu_name']; ?> </td>
-        <td> <a href="<?= url_for('staff/pages/show.php?id=' . $page['id']) ?>">View</a> </td>
+        <td> <?= h($page['id']); ?> </td>
+        <td> <?= h($page['position']); ?> </td>
+        <td> <?= $page['visible'] == '1' ? 'true' : 'false'; ?> </td>
+        <td> <?= h($page['menu_name']); ?> </td>
+        <td> <a href="<?= url_for('staff/pages/show.php?id=' . h(u($page['id']))) ?>">View</a> </td>
         <td> <a href="">Edit</a> </td>
         <td> <a href="">Delete</a> </td>
     </tr>
