@@ -49,4 +49,18 @@ function redirect_to($location)
     header("Location: " . $location);
     exit;
 }
+
+// To check for form submission
+// True if it is a post request
+// False otherwise
+function is_post_request()
+{
+    return $_SERVER['REQUEST_METHOD'] == 'POST';
+}
+
+// To check if it is a get request
+function is_get_request()
+{
+    return $_SERVER['REQUEST_METHOD'] == 'GET';
+}
 ?>
