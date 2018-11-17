@@ -9,7 +9,7 @@
     define("PUBLIC_PATH", PROJECT_PATH . '/public');
     define("SHARED_PATH", PRIVATE_PATH . '/shared');
 
-    require_once('functions.php');
+
 
     // Assign the root URL to a PHP constant
     // * Do not need to include the domain
@@ -21,3 +21,10 @@
     $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
     $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
     define("WWW_ROOT", $doc_root);
+
+    require_once('functions.php');
+    // Contains all the database functions
+    require_once('database.php');
+
+    // Connects to the database
+    $db = db_connect();

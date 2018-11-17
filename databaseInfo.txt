@@ -238,6 +238,32 @@ UPDATE pages SET position='4' WHERE id=3;
 DELETE FROM pages
 WHERE id = 10;
 
+*----------------------------------------------*
+Connecting to MySQL Using PHP
+*----------------------------------------------*
+
+1. Create a database connection
+2. Perform query
+3. Use returned data
+4. Release returned data
+5. Close database connection
+
+1. Create a database connection
+
+mysqli_connect($host, $user, $password, $database)
+
+$host -> location server -> localhost in development
+MySQL username and password
+database name
+
+Returns a connection handle as a result.
+
+5. Close database connection
+
+mysqli_close($connection)
+
+$connection is the connection handle.
+
 
 
 

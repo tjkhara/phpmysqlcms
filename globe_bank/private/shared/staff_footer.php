@@ -1,5 +1,11 @@
 <footer>
     &copy; <?= date('Y'); ?> Globe Bank
-    </body>
-    </html>
 </footer>
+</body>
+</html>
+
+<?php
+
+    db_disconnect($db);
+
+?>
