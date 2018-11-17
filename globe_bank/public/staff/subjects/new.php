@@ -2,16 +2,27 @@
 
 require_once('../../../private/initialize.php');
 
-// There can be no white space on this page before the php tag
+// Set default values for variables in form
+$menu_name = "";
+$position = "";
+$visible = "";
 
-$test = $_GET['test'] ?? '';
+//********* Form Processing **********************//
+// This code below will make sure that create.php is only accessed via
+// a post request or a form submission. And not by directly putting this
+// URL in the browser (get request.)
+if(is_post_request())
+{
+    // Handle form values sent by new.php
 
-if($test == '404') {
-    error_404();
-} elseif ($test == '500') {
-    error_500();
-} elseif ($test == 'redirect') {
-    redirect_to(url_for('/staff/subjects/index.php'));
+    $menu_name = $_POST['menu_name'] ?? '';
+    $position = $_POST['position'] ?? '';
+    $visible = $_POST['visible'] ?? '';
+
+    echo "Form parameters<br />";
+    echo "Menu name: " . $menu_name . "<br />";
+    echo "Position: " . $position . "<br />";
+    echo "Visible: " . $visible . "<br />";
 }
 ?>
 
@@ -25,10 +36,10 @@ if($test == '404') {
     <div class="subject new">
         <h1>Create Subject</h1>
 
-        <form action="<?= url_for('/staff/subjects/create.php'); ?>" method="post">
+        <form action="<?= url_for('/staff/pages/new.php') ?>" method="post">
             <dl>
                 <dt>Menu Name</dt>
-                <dd><input type="text" name="menu_name" value="" /></dd>
+                <dd><input type="text" name="menu_name" value="<?= $menu_name ?>" /></dd>
             </dl>
             <dl>
                 <dt>Position</dt>
