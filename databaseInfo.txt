@@ -346,5 +346,16 @@ while($subject = mysqli_fetch_assoc($result))
     echo $subject['menu_name'];
 }
 
+*----------------------------------------------------------------------------------*
+Error Handling
+*----------------------------------------------------------------------------------*
+
+// Error number - returns error number from the last call to the database
+// This is faster
+mysqli_connect_errno()
+
+// MySQLi error - returns a string description of the last connect error
+mysqli_connect_error()
+
 
 

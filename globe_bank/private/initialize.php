@@ -27,5 +27,5 @@
     require_once('database.php');
     require_once('query_functions.php');
 
-    // Connects to the database
+    // Do all the things to connect to the database
     $db = db_connect();
