@@ -20,7 +20,7 @@ $pages =
 
 
     <div class="actions">
-        <a class="actions" href="">Create New Page</a>
+        <a class="actions" href="<?= url_for('/staff/pages/new.php') ?>">Create New Page</a>
     </div>
 
 <table class="list">
@@ -40,7 +40,7 @@ $pages =
         <td> <?= $page['visible'] == '1' ? 'true' : 'false'; ?> </td>
         <td> <?= h($page['menu_name']); ?> </td>
         <td> <a href="<?= url_for('staff/pages/show.php?id=' . h(u($page['id']))) ?>">View</a> </td>
-        <td> <a href="">Edit</a> </td>
+        <td> <a href="<?= url_for('staff/pages/edit.php?id=' . h(u($page['id']))) ?>">Edit</a> </td>
         <td> <a href="">Delete</a> </td>
     </tr>
     <?php } ?>
