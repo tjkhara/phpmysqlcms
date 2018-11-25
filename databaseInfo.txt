@@ -357,5 +357,9 @@ mysqli_connect_errno()
 // MySQLi error - returns a string description of the last connect error
 mysqli_connect_error()
 
+*----------------------------------------------------------------------------------*
+Finding a Single Record
+*----------------------------------------------------------------------------------*
+
 
 

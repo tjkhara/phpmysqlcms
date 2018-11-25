@@ -14,6 +14,22 @@ function find_all_subjects()
     return $result;
 }
 
+// Find a single subject
+// Returns an associative array
+function find_subject_by_id($id){
+    global $db;
+
+    $sql = "SELECT * FROM subjects ";
+    $sql .= "WHERE id='" . $id . "'";
+    $result = mysqli_query($db, $sql);
+    confirm_result_set($result);
+
+    $subject = mysqli_fetch_assoc($result);
+    mysqli_free_result($result);
+
+    return $subject;
+}
+
 
 // Find all pages
 function find_all_pages()
