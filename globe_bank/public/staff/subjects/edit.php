@@ -12,6 +12,8 @@ if(!isset($_GET['id']))
 // At this point we have an id
 $id = $_GET['id'];
 
+
+
 // There can be no white space on this page before the php tag
 
 
@@ -28,14 +30,34 @@ if(is_post_request())
 {
     // Handle form values sent by new.php
 
-    $menu_name = $_POST['menu_name'] ?? '';
-    $position = $_POST['position'] ?? '';
-    $visible = $_POST['visible'] ?? '';
+    $subject = [];
+    $subject["menu_name"] = $_POST['menu_name'] ?? '';
+    $subject["position"] = $_POST['position'] ?? '';
+    $subject["visible"] = $_POST['visible'] ?? '';
 
-    echo "Form parameters<br />";
-    echo "Menu name: " . $menu_name . "<br />";
-    echo "Position: " . $position . "<br />";
-    echo "Visible: " . $visible . "<br />";
+    $sql = "UPDATE subjects SET ";
+    $sql .= "menu_name='" . $subject["menu_name"] . "', ";
+    $sql .= "position='" . $subject["menu_name"] . "', ";
+    $sql .= "visible='" . $subject["menu_name"] . "'";
+    $sql .= "WHERE id='" . $id . "' ";
+    $sql .= "LIMIT 1";
+
+    $result = mysqli_query($db, $sql);
+    // For update statements the result is true of false
+    if($result)
+    {
+        redirect_to(url_for("staff/subjects/show.php?id=" . $id));
+    } else
+    {
+        // Update failed
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+
+} else
+{
+    $subject = find_subject_by_id($id);
 }
 ?>
 
@@ -54,13 +76,13 @@ if(is_post_request())
         <form action="<?php echo url_for('/staff/subjects/edit.php?id=' . h(u($id))); ?>" method="post">
             <dl>
                 <dt>Menu Name</dt>
-                <dd><input type="text" name="menu_name" value="<?= h($menu_name) ?>" /></dd>
+                <dd><input type="text" name="menu_name" value="<?= h($subject['menu_name']) ?>" /></dd>
             </dl>
             <dl>
                 <dt>Position</dt>
                 <dd>
                     <select name="position">
-                        <option value="1" <?php if($position == '1'){echo " selected";} ?>>1</option>
+                        <option value="1" <?php if($subject["position"] == '1'){echo " selected";} ?>>1</option>
                     </select>
                 </dd>
             </dl>
@@ -68,7 +90,7 @@ if(is_post_request())
                 <dt>Visible</dt>
                 <dd>
                     <input type="hidden" name="visible" value="0" />
-                    <input type="checkbox" name="visible" value="1" <?php if($visible == 1){echo " checked";} ?>/>
+                    <input type="checkbox" name="visible" value="1" <?php if($subject["visible"] == 1){echo " checked";} ?>/>
                 </dd>
             </dl>
             <div id="operations">
