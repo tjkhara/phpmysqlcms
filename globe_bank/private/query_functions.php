@@ -30,6 +30,20 @@ function find_subject_by_id($id){
     return $subject;
 }
 
+function find_page_by_id($id){
+    global $db;
+
+    $sql = "SELECT * FROM pages ";
+    $sql .= "WHERE id='" . $id . "'";
+    $result = mysqli_query($db, $sql);
+    confirm_result_set($result);
+
+    $page = mysqli_fetch_assoc($result);
+    mysqli_free_result($result);
+
+    return $page;
+}
+
 function insert_subject($subject)
 {
     global $db;
@@ -82,6 +96,30 @@ function update_subject($subject)
     }
 }
 
+function delete_subject($id)
+{
+    global $db;
+
+    $sql = "DELETE FROM subjects ";
+    $sql .= "WHERE id='" . $id . "' ";
+    $sql .= "LIMIT 1";
+
+    $result = mysqli_query($db, $sql);
+
+    // For delete statements the result is either true or false
+    if($result)
+    {
+        return true;
+    }
+    else
+    {
+        // Delete failed
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+}
+
 // Find all pages
 function find_all_pages()
 {
@@ -94,5 +132,3 @@ function find_all_pages()
     confirm_result_set($result); // Checks to see if the query ran without error
     return $result;
 }
-
-?>
