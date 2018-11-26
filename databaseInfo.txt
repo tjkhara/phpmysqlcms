@@ -157,6 +157,10 @@ values('Consumer', 2, 1);
 INSERT INTO subjects(menu_name, position, visible)
 values('Small Business', 3, 1);
 
+// Getting the id of the inserted record from MySQL
+
+mysqli_insert_id($connection)
+
 *----------------------------------------------*
 
 // Update
