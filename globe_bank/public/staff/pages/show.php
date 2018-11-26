@@ -6,13 +6,19 @@
 $id = $_GET['id'] ?? '1';
 
 $page = find_page_by_id($id);
+$subject_id = $page["subject_id"];
+$subject_name = find_subject_name_by_id($subject_id);
 ?>
 
 <div id="content">
     <a href="index.php">&laquo; Back to List</a>
     <div class="page show">
-        <h1>Subject: <?php echo h($page['menu_name']); ?></h1>
+        <h1>Page: <?php echo h($page['menu_name']); ?></h1>
         <div class="attributes">
+            <dl>
+                <dt>Subject Name</dt>
+                <?= h($subject_name); ?>
+            </dl>
             <dl>
                 <dt>Menu Name</dt>
                 <dd><?php echo h($page['menu_name']); ?></dd>
