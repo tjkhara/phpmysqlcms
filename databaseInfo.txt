@@ -3,7 +3,11 @@ Login credentials
 *----------------------------------------------*
 // From https://stackoverflow.com/questions/698914/how-can-i-access-the-mysql-command-line-with-xampp-for-windows
 
+****************************************
 cd c:\xampp\mysql\bin
+mysql.exe -u root -p globe_bank
+****************************************
+
 mysql.exe -u root --password
 RSbj1409
 
