@@ -103,35 +103,21 @@
     return preg_match($email_regex, $value) === 1;
   }
 
-  // Ensures each menu name we are given for a page
-  // is a unique value
-  // Make a trip to the database and find out if a value
-  // already exists there or not
-  function has_unique_page_menu_name($menu_name)
-  {
-    // Get all the page menu names from the database
+  // has_unique_page_menu_name('History')
+  // * Validates uniqueness of pages.menu_name
+  // * For new records, provide only the menu_name.
+  // * For existing records, provide current ID as second arugment
+  //   has_unique_page_menu_name('History', 4)
+  function has_unique_page_menu_name($menu_name, $current_id="0") {
     global $db;
 
-    $result = find_all_pages();
+    $sql = "SELECT * FROM pages ";
+    $sql .= "WHERE menu_name='" . $menu_name . "' ";
+    $sql .= "AND id != '" . $current_id . "'";
 
-    $page_menu_names = [];
+    $page_set = mysqli_query($db, $sql);
+    $page_count = mysqli_num_rows($page_set);
+    mysqli_free_result($page_set);
 
-    while($page = mysqli_fetch_assoc($result))
-    {
-      $page_menu_names[] = $page['menu_name'];
-    }
-
-    $has_name = false;
-
-    foreach ($page_menu_names as $name)
-    {
-      if($name === $menu_name)
-      {
-        $has_name = true;
-      }
-    }
-
-    mysqli_free_result($result);
-
-    echo $has_name;
+    return $page_count === 0;
   }
