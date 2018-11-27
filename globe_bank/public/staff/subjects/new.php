@@ -2,6 +2,11 @@
 
 require_once('../../../private/initialize.php');
 
+$subject_set = find_all_subjects();
+$subject_count = mysqli_num_rows($subject_set) + 1;
+mysqli_free_result($subject_set);
+
+
 if(is_post_request()) {
 
     $subject = [];
@@ -25,9 +30,7 @@ if(is_post_request()) {
     $subject["visible"] = '';
 }
 
-$subject_set = find_all_subjects();
-$subject_count = mysqli_num_rows($subject_set) + 1;
-mysqli_free_result($subject_set);
+
 
 ?>
 
@@ -68,7 +71,7 @@ mysqli_free_result($subject_set);
                 <dt>Visible</dt>
                 <dd>
                     <input type="hidden" name="visible" value="0" />
-                    <input type="checkbox" name="visible" value="1"<?php echo if($subject['visible'] == 1) { echo " checked"}; ?> />
+                    <input type="checkbox" name="visible" value="1" <?php if($subject["visible"] == 1){echo " checked";} ?>/>
                 </dd>
             </dl>
             <div id="operations">
