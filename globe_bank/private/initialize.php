@@ -30,3 +30,4 @@
 
     // Do all the things to connect to the database
     $db = db_connect();
+    $errors = [];
