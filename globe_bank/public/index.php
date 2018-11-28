@@ -11,7 +11,24 @@ if(isset($_GET['id']))
     redirect_to(url_for('/index.php'));
   }
   $subject_id = $page["subject_id"];
-}else // If page is found
+}
+elseif (isset($_GET["subject_id"]))
+{
+  $subject_id = $_GET["subject_id"];
+  $page_set = find_pages_by_subject_id($subject_id);
+  $page = mysqli_fetch_assoc($page_set); // first page
+  mysqli_free_result($page_set);
+
+  if(!$page)
+  {
+    redirect_to(url_for('/index.php'));
+  }
+
+  // If there was a page
+  // set $page_id to $page['id]
+  $page_id = $page['id'];
+}
+else // If page is found
 {
   // Nothing selected show the home page
 
