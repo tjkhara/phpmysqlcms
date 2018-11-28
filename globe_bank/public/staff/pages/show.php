@@ -14,6 +14,10 @@
   <a href="index.php">&laquo; Back to List</a>
   <div class="page show">
     <h1>Page: <?php echo h($page['menu_name']); ?></h1>
+    <div class="actions">
+      <a class="action" href="<?= url_for('/index.php?id=' . h(u($page["id"])) . '&preview=true'); ?>"
+         target="_blank">Preview</a>
+    </div>
     <div class="attributes">
       <dl>
         <dt>Subject Name</dt>
