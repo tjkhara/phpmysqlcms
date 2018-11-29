@@ -1,5 +1,5 @@
 <?php require_once('../../../private/initialize.php'); ?>
-
+<?php require_login(); ?>
 <?php
   // Get results from database
   $subject_set = find_all_subjects();
