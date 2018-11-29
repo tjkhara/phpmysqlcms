@@ -11,6 +11,7 @@
   {
 
     $result = delete_subject($id);
+    $_SESSION['message'] = 'The subject was deleted successfully.';
     redirect_to(url_for('/staff/subjects/index.php'));
   } else // If not, find the subject
   {
