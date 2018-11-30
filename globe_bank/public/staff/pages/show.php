@@ -13,7 +13,7 @@
 ?>
 
 <div id="content">
-  <a href="<?php echo url_for('/staff/subjects/show.php?id=' . h(u($subject["id"]))) ?>">&laquo; Back to Subject Page</a>
+  <a href="<?php echo url_for('/staff/subjects/show.php?id=' . h(u($subject_id))) ?>">&laquo; Back to Subject Page</a>
   <div class="page show">
     <h1>Page: <?php echo h($page['menu_name']); ?></h1>
     <div class="actions">
