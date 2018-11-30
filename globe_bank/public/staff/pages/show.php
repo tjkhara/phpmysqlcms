@@ -9,10 +9,11 @@
   $page = find_page_by_id($id);
   $subject_id = $page["subject_id"];
   $subject_name = find_subject_name_by_id($subject_id);
+  $subject = find_subject_by_id($id);
 ?>
 
 <div id="content">
-  <a href="index.php">&laquo; Back to List</a>
+  <a href="<?php echo url_for('/staff/subjects/show.php?id=' . h(u($subject["id"]))) ?>">&laquo; Back to Subject Page</a>
   <div class="page show">
     <h1>Page: <?php echo h($page['menu_name']); ?></h1>
     <div class="actions">
