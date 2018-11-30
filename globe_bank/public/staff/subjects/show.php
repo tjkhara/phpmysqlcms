@@ -7,6 +7,8 @@
   $id = $_GET['id'] ?? '1';
 
   $subject = find_subject_by_id($id);
+
+  $page_set = find_pages_by_subject_id($id);
 ?>
 
 
@@ -30,6 +32,42 @@
       </dl>
     </div>
   </div>
+
+
+<hr>
+
+<div class="pages listing">
+  <h2>Pages</h2>
+
+
+  <div class="actions">
+    <a class="actions" href="<?= url_for('/staff/pages/new.php') ?>">Create New Page</a>
+  </div>
+
+  <table class="list">
+    <tr>
+      <th>ID</th>
+      <th>Position</th>
+      <th>Visible</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <?php while ($page = mysqli_fetch_assoc($page_set)) { ?>
+      <tr>
+        <td> <?= h($page['id']); ?> </td>
+        <td> <?= h($page['position']); ?> </td>
+        <td> <?= $page['visible'] == '1' ? 'true' : 'false'; ?> </td>
+        <td> <?= h($page['menu_name']); ?> </td>
+        <td><a href="<?= url_for('staff/pages/show.php?id=' . h(u($page['id']))) ?>">View</a></td>
+        <td><a href="<?= url_for('staff/pages/edit.php?id=' . h(u($page['id']))) ?>">Edit</a></td>
+        <td><a href="<?= url_for('staff/pages/delete.php?id=' . h(u($page['id']))) ?>">Delete</a></td>
+      </tr>
+    <?php } ?>
+  </table>
+  <?php mysqli_free_result($page_set); ?>
+</div>
 </div>
 
 <?php
